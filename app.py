@@ -17,7 +17,6 @@ def submit():
     num, acc = predict_number(data)
     return Response(f"{num} {acc}")
 
-
 def predict_number(num_string):
     try:
         img = np.array([float(i) for i in num_string.split(',')])
@@ -27,11 +26,9 @@ def predict_number(num_string):
     img = img.reshape((28, 28)).T
     img = img.reshape((1, 28 * 28))
 
-    #TODO return the accuracy 
     pred = model.predict(img)
     return np.argmax(pred), pred[0][np.argmax(pred)]
     
-
 
 
 
