@@ -6,6 +6,7 @@ let pixelState = [];
 
 function setup() {
     let cnv = createCanvas(600, 600);
+    cnv.parent("canvas-holder")
     size = width / w;
     textSize(20);
     stroke(100);
@@ -16,9 +17,11 @@ function setup() {
 function draw() {
 
     // Spacebar
-    if (keyIsDown(32))
+    if (keyIsDown(32)) {
         reset_pixels();
-
+        document.getElementById("result").innerHTML = "<p>?</p>";
+    }
+    
     for (let x = 0; x < w; x++) {
         for (let y = 0; y < h; y++) {
 
@@ -90,5 +93,4 @@ function send_data() {
     xhttp.open("POST", "/submit", true);
     xhttp.setRequestHeader("Content-type", "application/json")
     xhttp.send(data_string);
-
 }
