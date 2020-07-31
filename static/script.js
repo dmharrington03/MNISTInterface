@@ -85,7 +85,7 @@ function send_data() {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             let res = this.responseText.split(" ");
-            document.getElementById("result").innerHTML = `<p>${res[0]} - ${Math.trunc(res[1] * 100) / 100}%</p>`;
+            document.getElementById("result").innerHTML = `<p>${res[0]} - ${Math.trunc(res[1] * 100 * 10) / 10}%</p>`;
         }
     };
 
